@@ -1,0 +1,12 @@
+identifier: travelers_board_split
+name: travelers-board-split (NINA-B302-00B)
+type: mcu
+arch: arm
+toolchain:
+  - zephyr
+  - gnuarmemb
+  - xtools
+supported:
+  - adc
+  - ble
+  - gpio

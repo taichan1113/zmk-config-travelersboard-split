@@ -1,0 +1,31 @@
+CONFIG_SOC_SERIES_NRF52X=y
+CONFIG_SOC_NRF52840_QIAA=y
+CONFIG_BOARD_TRAVELERS_BOARD_SPLIT=y
+
+CONFIG_ARM_MPU=y
+CONFIG_GPIO=y
+CONFIG_ADC=y
+
+CONFIG_USE_DT_CODE_PARTITION=y
+CONFIG_FLASH=y
+CONFIG_FLASH_PAGE_LAYOUT=y
+CONFIG_FLASH_MAP=y
+CONFIG_NVS=y
+CONFIG_SETTINGS_NVS=y
+CONFIG_MPU_ALLOW_FLASH_WRITE=y
+
+# NINA-B302 contains the 32.768 kHz crystal. Keep Zephyr's conservative
+# crystal-accuracy default (50 ppm); the module owns its crystal load network.
+CONFIG_CLOCK_CONTROL_NRF=y
+CONFIG_CLOCK_CONTROL_NRF_K32SRC_XTAL=y
+
+# This PCB has no USB hardware and is flashed directly over SWD. These are
+# target-local settings; the workspace's UF2 workflow remains untouched.
+CONFIG_ZMK_USB=n
+CONFIG_ZMK_BLE=y
+CONFIG_BUILD_OUTPUT_UF2=n
+CONFIG_BOOTLOADER_MCUBOOT=n
+
+# The local travelers battery driver waits 300 ms for the switched 1 Mohm /
+# 1 Mohm / 100 nF divider, then reports through the BLE Battery Service.
+CONFIG_ZMK_BATTERY_REPORTING=y

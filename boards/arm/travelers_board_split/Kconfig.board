@@ -1,0 +1,3 @@
+config BOARD_TRAVELERS_BOARD_SPLIT
+    bool "travelers-board-split NINA-B302-00B keyboard board"
+    depends on SOC_NRF52840_QIAA

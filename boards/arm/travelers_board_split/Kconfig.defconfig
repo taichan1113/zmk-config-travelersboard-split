@@ -1,0 +1,10 @@
+if BOARD_TRAVELERS_BOARD_SPLIT
+
+config ZMK_KEYBOARD_NAME
+    # ZMK v0.3 limits the BLE device name to 16 bytes.
+    default "travelers-split"
+
+config BT_CTLR
+    default BT
+
+endif # BOARD_TRAVELERS_BOARD_SPLIT

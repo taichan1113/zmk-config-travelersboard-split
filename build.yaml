@@ -1,0 +1,6 @@
+---
+# This is the presently available master/central PCB only. It is a
+# central-only electrical/BLE bring-up target; no peripheral is assumed.
+include:
+  - board: travelers_board_split
+    artifact-name: travelers-board-split-central
