@@ -26,6 +26,7 @@ CONFIG_ZMK_BLE=y
 CONFIG_BUILD_OUTPUT_UF2=n
 CONFIG_BOOTLOADER_MCUBOOT=n
 
-# The local travelers battery driver waits 300 ms for the switched 1 Mohm /
+# The external nRF battery driver waits 300 ms for the switched 1 Mohm /
 # 1 Mohm / 100 nF divider, then reports through the BLE Battery Service.
 CONFIG_ZMK_BATTERY_REPORTING=y
+CONFIG_ZMK_POWER_GATED_BATTERY_VOLTAGE_DIVIDER=y

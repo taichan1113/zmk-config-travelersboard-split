@@ -33,12 +33,13 @@ intentionally builds no UF2 and has no USB support.
 - The NINA-B302's onboard 32 MHz and 32.768 kHz crystals are used. The module
   owns their load network; no board-level capacitance or UICR/regulator change
   is made.
-- Battery reporting is enabled using a local Zephyr module driver, not a ZMK
-  source modification. It enables P0.13, waits 300 ms for the switched 1 Mohm
+- Battery reporting is enabled using the external
+  `zmk-module-battery-voltage-divider` Zephyr module, not a ZMK source
+  modification. It enables P0.13, waits 300 ms for the switched 1 Mohm
   / 1 Mohm divider and 100 nF capacitor to settle, samples P0.04 / SAADC AIN2,
   then turns P0.13 off. The result is sent through the BLE Battery Service.
-  `empty-millivolts` (2.0 V) and `full-millivolts` (3.0 V) are an initial
-  linear CR2032 loaded-VDD estimate and can be calibrated in the board DTS.
+  Its default linear estimate is CR2032 loaded-VDD: 2.0 V is 0% and 3.0 V is
+  100%. These values can be overridden in the board DTS.
 
 ## OpenOCD SWD programming
 

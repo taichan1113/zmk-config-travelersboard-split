@@ -1,4 +1,0 @@
-# Device tree binding vendor prefix registry.
-#
-# <vendor-prefix><TAB><Full name of vendor>
-travelers	travelers-board-split project

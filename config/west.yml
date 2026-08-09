@@ -4,9 +4,14 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
+    - name: taichan1113
+      url-base: https://github.com/taichan1113
   projects:
     - name: zmk
       remote: zmkfirmware
       import: app/west.yml
+    - name: zmk-module-battery-voltage-divider
+      remote: taichan1113
+      revision: main
   self:
     path: config
