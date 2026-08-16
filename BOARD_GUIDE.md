@@ -283,9 +283,11 @@ Error: init mode failed (unable to connect to the target)
 | SWDIO ↔ GND、SWCLK ↔ GND、SWDIO ↔ SWCLK | 低抵抗短絡なし |
 | VCC ↔ GND | 定常的な低抵抗短絡なし（コンデンサ充電による一時的な低抵抗は除く） |
 
-この基板では `P0.19` を matrix col0 と SWDCLK、`P0.20` を matrix col2 と SWDIO で共有します。
-キーを押した状態、マトリクス配線、ダイオード、リフロー不良による短絡・負荷も SWD 接続に
-影響します。接続時は該当キーを押さず、P0.19/P0.20 周辺を優先して確認します。
+ボード DTS は `P0.19` を matrix col0、`P0.20` を matrix col2 に割り当てています。
+ただし、この DTS は SWD パッドの物理配線を示しません。SWDIO/SWCLK とテストパッドの配線、
+または matrix 配線との共有の有無は、回路図・PCB レイアウト・導通測定で確認します。
+キーを押した状態、matrix 配線、ダイオード、リフロー不良による短絡・負荷も、物理配線が
+共有されている場合には SWD 接続へ影響し得ます。
 
 信号品質を確認するため、接続速度を落として再試行できます。
 
