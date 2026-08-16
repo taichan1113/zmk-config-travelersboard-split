@@ -13,6 +13,51 @@ NINA-B302-00B（nRF52840）を使う travelers-board-split の ZMK v0.3 設定�
   読み、BLE Battery Service へ報告します。既定の線形換算は 2.0 V = 0%、3.0 V = 100% です。
 - USB、UF2、MCUboot は使用しません。SWD で書き込みます。
 
+## 構成 A の起動・BLE スタック
+
+採用している構成 A では、nRF52840 のリセット後に ZMK アプリが直接起動します。
+
+```text
+nRF52840 のリセット
+  ↓
+ZMK アプリケーション（0x00000000）
+  ├─ Zephyr kernel / drivers
+  ├─ Zephyr Bluetooth Host
+  ├─ Zephyr Bluetooth Controller
+  ├─ ZMK
+  └─ Battery reporting module
+```
+
+| 要素 | 一般的な役割 | この基板の構成 A |
+|---|---|---|
+| Bootloader | USB/UF2/DFU 等でアプリを更新する。代表例は MCUboot | 使用しない |
+| MBR | Nordic の起動層。SoftDevice や一部 Bootloader と連携する | 使用しない |
+| SoftDevice | Nordic 提供の BLE プロトコルスタック（例: S140） | 使用しない |
+| Zephyr Bluetooth Controller | BLE の低レイヤ Controller | 使用する |
+| Zephyr Bluetooth Host | GATT/HID/BAS 等の上位 Bluetooth 処理 | 使用する |
+| ZMK アプリ | キーマトリクス、キー処理、BLE HID、設定、電池残量報告 | 使用する |
+
+Flash の配置は以下です。
+
+| 範囲 | 内容 | 備考 |
+|---|---|---|
+| `0x00000000`–`0x000dffff` | ZMK アプリケーション | ベクタテーブルを含む |
+| `0x000e0000`–`0x000fffff` | NVS / ZMK settings | BLE bonding、設定等を保存 |
+
+比較時に確認した direct HEX の先頭ベクタテーブルは `SP = 0x20007c20`、
+`Reset = 0x000043ed` でした。これらの値はビルドごとに変わり得ますが、ZMK の
+SP / Reset_Handler が `0x00000000` に存在することが重要です。
+
+### SoftDevice を検討した経緯と結論
+
+初期の BLE 起動失敗では `bt_hci_cmd_send_sync()` 周辺の fatal error が見えたため、
+MBR / SoftDevice 不足も候補として比較しました。その後、全消去直後に構成 A の
+direct HEX 単独で BLE HID として動作することを確認しました。
+
+従って、構成 A の通常運用で S140 SoftDevice を書き込む必要はありません。初期の
+不具合には SWDIO-GND 短絡、キーマトリクス列のブリッジ、電池電圧測定設定などの
+ハードウェア／設定要因も含まれていました。
+
 ## ビルド
 
 workspace root で実行します。
