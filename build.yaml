@@ -4,3 +4,5 @@
 include:
   - board: travelers_board_split
     artifact-name: travelers-board-split-central
+  - board: travelers_board_split_bootloader
+    artifact-name: travelers-board-split-central-bootloader

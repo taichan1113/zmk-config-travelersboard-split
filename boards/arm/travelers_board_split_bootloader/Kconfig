@@ -1,0 +1,2 @@
+# Intentionally empty: board options are declared in Kconfig.board and
+# Kconfig.defconfig, following the Zephyr version used by ZMK v0.3.

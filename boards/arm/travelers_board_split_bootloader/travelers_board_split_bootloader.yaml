@@ -1,0 +1,12 @@
+identifier: travelers_board_split_bootloader
+name: travelers-board-split Bootloader variant (NINA-B302-00B)
+type: mcu
+arch: arm
+toolchain:
+  - zephyr
+  - gnuarmemb
+  - xtools
+supported:
+  - adc
+  - ble
+  - gpio
