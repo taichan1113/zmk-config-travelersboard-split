@@ -1,6 +1,0 @@
-identifier: travelers_board_split_bootloader_left
-name: travelers-board-split Bootloader left peripheral
-type: mcu
-arch: arm
-toolchain: [zephyr, gnuarmemb, xtools]
-supported: [adc, ble, gpio]

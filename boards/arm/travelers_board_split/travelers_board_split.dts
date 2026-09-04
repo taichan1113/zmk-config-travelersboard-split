@@ -4,7 +4,7 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 
 / {
-    model = "travelers-board-split (NINA-B302-00B)";
+    model = "travelers-board-split UF2 variant (NINA-B302-00B)";
     compatible = "travelers-board-split";
 
     chosen {
@@ -30,7 +30,6 @@
 
     kscan0: kscan_0 {
         compatible = "zmk,kscan-gpio-matrix";
-        /* col2row: rows are active-high inputs with internal pull-downs. */
         row-gpios = <
             &gpio0 14 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)
             &gpio0 15 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)
@@ -38,7 +37,6 @@
             &gpio0 24 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)
             &gpio0 25 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)
         >;
-        /* col2row: columns are active-high scan outputs. */
         col-gpios = <
             &gpio0 19 GPIO_ACTIVE_HIGH
             &gpio0 17 GPIO_ACTIVE_HIGH
@@ -50,7 +48,6 @@
         diode-direction = "col2row";
     };
 
-    /* P0.04 is nRF52840 SAADC AIN2; VBAT_EN measures switched, loaded VDD. */
     vbat: battery {
         compatible = "zmk,power-gated-battery-voltage-divider";
         status = "okay";
@@ -60,33 +57,15 @@
         full-ohms = <200000>;
         power-gpios = <&gpio0 13 GPIO_ACTIVE_HIGH>;
         settle-delay-ms = <300>;
-        /* Uses the module's CR2032 loaded-VDD defaults: 2.0 V = 0%, 3.0 V = 100%. */
     };
 };
 
-&adc {
-    status = "okay";
-};
-
-&gpiote {
-    status = "okay";
-};
-
-&gpio0 {
-    status = "okay";
-};
-
-&gpio1 {
-    status = "okay";
-};
-
-&uart0 {
-    status = "disabled";
-};
-
-&usbd {
-    status = "disabled";
-};
+&adc { status = "okay"; };
+&gpiote { status = "okay"; };
+&gpio0 { status = "okay"; };
+&gpio1 { status = "okay"; };
+&uart0 { status = "disabled"; };
+&usbd { status = "okay"; };
 
 &flash0 {
     partitions {
@@ -94,16 +73,32 @@
         #address-cells = <1>;
         #size-cells = <1>;
 
-        /* No MBR, SoftDevice, MCUboot, or UF2 bootloader: application at 0. */
-        code_partition: partition@0 {
-            label = "code";
-            reg = <0x00000000 0x000e0000>;
+        mbr_partition: partition@0 {
+            label = "mbr";
+            reg = <0x00000000 0x00001000>;
+            read-only;
         };
 
-        /* 128 KiB NVS/settings area, retained across normal HEX updates. */
-        storage_partition: partition@e0000 {
+        s140_partition: partition@1000 {
+            label = "s140";
+            reg = <0x00001000 0x00026000>;
+            read-only;
+        };
+
+        code_partition: partition@27000 {
+            label = "code";
+            reg = <0x00027000 0x000ad000>;
+        };
+
+        storage_partition: partition@d4000 {
             label = "storage";
-            reg = <0x000e0000 0x00020000>;
+            reg = <0x000d4000 0x00020000>;
+        };
+
+        bootloader_partition: partition@f4000 {
+            label = "bootloader";
+            reg = <0x000f4000 0x0000c000>;
+            read-only;
         };
     };
 };

@@ -1,5 +1,5 @@
 identifier: travelers_board_split_right
-name: travelers-board-split right central
+name: travelers-board-split UF2 right peripheral
 type: mcu
 arch: arm
 toolchain: [zephyr, gnuarmemb, xtools]

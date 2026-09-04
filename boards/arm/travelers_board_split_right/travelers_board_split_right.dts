@@ -3,7 +3,7 @@
 #include "../travelers_board_split_left/travelers_board_split_left.dts"
 
 / {
-    model = "travelers-board-split right central (NINA-B302-00B)";
+    model = "travelers-board-split UF2 right peripheral (NINA-B302-00B)";
     compatible = "travelers-board-split-right";
 };
 

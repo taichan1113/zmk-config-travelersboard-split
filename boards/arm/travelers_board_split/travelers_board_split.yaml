@@ -1,5 +1,5 @@
 identifier: travelers_board_split
-name: travelers-board-split (NINA-B302-00B)
+name: travelers-board-split UF2 variant (NINA-B302-00B)
 type: mcu
 arch: arm
 toolchain:

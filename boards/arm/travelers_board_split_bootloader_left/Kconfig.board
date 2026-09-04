@@ -1,3 +1,0 @@
-config BOARD_TRAVELERS_BOARD_SPLIT_BOOTLOADER_LEFT
-    bool "travelers-board-split Bootloader left peripheral"
-    depends on SOC_NRF52840_QIAA
