@@ -1,0 +1,6 @@
+identifier: travelers_board_split_bootloader_right
+name: travelers-board-split Bootloader right central
+type: mcu
+arch: arm
+toolchain: [zephyr, gnuarmemb, xtools]
+supported: [adc, ble, gpio]

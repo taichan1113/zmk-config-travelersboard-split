@@ -1,0 +1,12 @@
+/dts-v1/;
+
+#include "../travelers_board_split_left/travelers_board_split_left.dts"
+
+/ {
+    model = "travelers-board-split right central (NINA-B302-00B)";
+    compatible = "travelers-board-split-right";
+};
+
+&default_transform {
+    col-offset = <6>;
+};

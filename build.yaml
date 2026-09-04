@@ -1,8 +1,14 @@
 ---
-# This is the presently available master/central PCB only. It is a
-# central-only electrical/BLE bring-up target; no peripheral is assumed.
 include:
   - board: travelers_board_split
     artifact-name: travelers-board-split-central
   - board: travelers_board_split_bootloader
     artifact-name: travelers-board-split-central-bootloader
+  - board: travelers_board_split_right
+    artifact-name: travelers-board-split-right
+  - board: travelers_board_split_left
+    artifact-name: travelers-board-split-left
+  - board: travelers_board_split_bootloader_right
+    artifact-name: travelers-board-split-bootloader-right
+  - board: travelers_board_split_bootloader_left
+    artifact-name: travelers-board-split-bootloader-left

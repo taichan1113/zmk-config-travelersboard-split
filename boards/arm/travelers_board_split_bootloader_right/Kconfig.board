@@ -1,0 +1,3 @@
+config BOARD_TRAVELERS_BOARD_SPLIT_BOOTLOADER_RIGHT
+    bool "travelers-board-split Bootloader right central"
+    depends on SOC_NRF52840_QIAA

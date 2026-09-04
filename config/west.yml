@@ -13,5 +13,10 @@ manifest:
     - name: zmk-module-battery-voltage-divider
       remote: taichan1113
       revision: main
+      path: module/zmk-module-battery-voltage-divider
+    - name: zmk-behavior-jp
+      remote: taichan1113
+      revision: main
+      path: module/zmk-behavior-jp
   self:
     path: config

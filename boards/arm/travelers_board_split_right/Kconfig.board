@@ -1,0 +1,3 @@
+config BOARD_TRAVELERS_BOARD_SPLIT_RIGHT
+    bool "travelers-board-split right central"
+    depends on SOC_NRF52840_QIAA

@@ -1,0 +1,9 @@
+if BOARD_TRAVELERS_BOARD_SPLIT_BOOTLOADER_RIGHT
+
+config ZMK_KEYBOARD_NAME
+    default "travelers-split"
+
+config BT_CTLR
+    default BT
+
+endif
