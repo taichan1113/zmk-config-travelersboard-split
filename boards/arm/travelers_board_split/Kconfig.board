@@ -1,3 +1,7 @@
-config BOARD_TRAVELERS_BOARD_SPLIT
-    bool "travelers-board-split UF2 variant"
+config BOARD_TRAVELERS_BOARD_SPLIT_LEFT
+    bool "travelers-board-split UF2 left central"
+    depends on SOC_NRF52840_QIAA
+
+config BOARD_TRAVELERS_BOARD_SPLIT_RIGHT
+    bool "travelers-board-split UF2 right peripheral"
     depends on SOC_NRF52840_QIAA

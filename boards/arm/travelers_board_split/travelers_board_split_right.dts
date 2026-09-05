@@ -1,6 +1,6 @@
 /dts-v1/;
 
-#include "../travelers_board_split_left/travelers_board_split_left.dts"
+#include "../travelers_board_split_common.dtsi"
 
 / {
     model = "travelers-board-split UF2 right peripheral (NINA-B302-00B)";
