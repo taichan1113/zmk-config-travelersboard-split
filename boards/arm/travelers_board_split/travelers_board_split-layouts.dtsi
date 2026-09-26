@@ -13,7 +13,7 @@
         transform = <&default_transform>;
 
         keys //                     w   h    x    y     rot    rx    ry
-            = <&key_physical_attrs  96 136   20   34       0     0     0> /* R0 C0 */
+            = <&key_physical_attrs  96 136   40   34       0     0     0> /* R0 C0 */
             , <&key_physical_attrs 136 136  136   34       0     0     0> /* R0 C1 */
             , <&key_physical_attrs 136 136  272   17       0     0     0> /* R0 C2 */
             , <&key_physical_attrs 136 136  408    0       0     0     0> /* R0 C3: left middle */
@@ -24,9 +24,9 @@
             , <&key_physical_attrs 136 136 1224    0       0     0     0> /* R0 C8: right middle */
             , <&key_physical_attrs 136 136 1360   17       0     0     0> /* R0 C9 */
             , <&key_physical_attrs 136 136 1496   34       0     0     0> /* R0 C10 */
-            , <&key_physical_attrs  96 136 1652   34       0     0     0> /* R0 C11 */
+            , <&key_physical_attrs  96 136 1632   34       0     0     0> /* R0 C11 */
 
-            , <&key_physical_attrs  96 136   20  170       0     0     0> /* R1 C0 */
+            , <&key_physical_attrs  96 136   40  170       0     0     0> /* R1 C0 */
             , <&key_physical_attrs 136 136  136  170       0     0     0> /* R1 C1 */
             , <&key_physical_attrs 136 136  272  153       0     0     0> /* R1 C2 */
             , <&key_physical_attrs 136 136  408  136       0     0     0> /* R1 C3 */
@@ -37,9 +37,9 @@
             , <&key_physical_attrs 136 136 1224  136       0     0     0> /* R1 C8 */
             , <&key_physical_attrs 136 136 1360  153       0     0     0> /* R1 C9 */
             , <&key_physical_attrs 136 136 1496  170       0     0     0> /* R1 C10 */
-            , <&key_physical_attrs  96 136 1652  170       0     0     0> /* R1 C11 */
+            , <&key_physical_attrs  96 136 1632  170       0     0     0> /* R1 C11 */
 
-            , <&key_physical_attrs  96 136   20  306       0     0     0> /* R2 C0 */
+            , <&key_physical_attrs  96 136   40  306       0     0     0> /* R2 C0 */
             , <&key_physical_attrs 136 136  136  306       0     0     0> /* R2 C1 */
             , <&key_physical_attrs 136 136  272  289       0     0     0> /* R2 C2 */
             , <&key_physical_attrs 136 136  408  272       0     0     0> /* R2 C3 */
@@ -50,14 +50,14 @@
             , <&key_physical_attrs 136 136 1224  272       0     0     0> /* R2 C8 */
             , <&key_physical_attrs 136 136 1360  289       0     0     0> /* R2 C9 */
             , <&key_physical_attrs 136 136 1496  306       0     0     0> /* R2 C10 */
-            , <&key_physical_attrs  96 136 1652  306       0     0     0> /* R2 C11 */
+            , <&key_physical_attrs  96 136 1632  306       0     0     0> /* R2 C11 */
 
-            , <&key_physical_attrs  96 136   20  442       0     0     0> /* R3 C0 */
-            , <&key_physical_attrs 136 136  544  408       0     0     0> /* R3 C4: left outer thumb */
-            , <&key_physical_attrs 136 136  714  408       0     0     0> /* R3 C5: left inner thumb */
-            , <&key_physical_attrs 136 136  918  408       0     0     0> /* R3 C6: right inner thumb */
-            , <&key_physical_attrs 136 136 1088  408       0     0     0> /* R3 C7: right outer thumb */
-            , <&key_physical_attrs  96 136 1652  442       0     0     0> /* R3 C11 */
+            , <&key_physical_attrs  96 136   40  442       0     0     0> /* R3 C0 */
+            , <&key_physical_attrs 136 136  544  442       0     0     0> /* R3 C4: left outer thumb */
+            , <&key_physical_attrs 136 136  680  442       0     0     0> /* R3 C5: left inner thumb */
+            , <&key_physical_attrs 136 136  952  442       0     0     0> /* R3 C6: right inner thumb */
+            , <&key_physical_attrs 136 136 1088  442       0     0     0> /* R3 C7: right outer thumb */
+            , <&key_physical_attrs  96 136 1632  442       0     0     0> /* R3 C11 */
             ;
     };
 };
