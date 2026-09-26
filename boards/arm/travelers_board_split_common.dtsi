@@ -8,6 +8,7 @@
         zephyr,sram = &sram0;
         zmk,kscan = &kscan0;
         zmk,matrix-transform = &default_transform;
+        zmk,physical-layout = &travelers_board_split_layout;
         zmk,battery = &vbat;
     };
 
@@ -97,3 +98,4 @@
         };
     };
 };
+#include "travelers_board_split/travelers_board_split-layouts.dtsi"
